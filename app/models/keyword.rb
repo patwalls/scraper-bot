@@ -1,7 +1,7 @@
 class Keyword < ApplicationRecord
 
   def self.check_reddit
-    Scraper.new(all_keywords, 200).scrape.each do |hit|
+    Scraper.new(all_keywords, 500).scrape.each do |hit|
       Notification.create!(name: hit) unless Notification.find_by_name(hit)
     end
   end
