@@ -25,7 +25,11 @@ class Scraper
   end
 
   def contains_fresh?(title, target)
-    title.include?('[FRESH]') && title.include?(target)
+     contains_fresh?(title) && title.include?(target)
+  end
+
+  def contains_fresh?(title)
+    title.include?('[FRESH]') || title.include?('[FRESH ALBUM]') || title.include?('[FRESH MIXTAPE]')
   end
 
   def over_threshold?(score)
